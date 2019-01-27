@@ -12,6 +12,7 @@ graph = {
 
 }
 
+
 """
 Below function returns the vertices of a graph.
 """
