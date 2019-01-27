@@ -21,5 +21,15 @@ def get_vertices():
 
     return graph.keys()
 
+"""
+Below function returns the edges of the graphs along with Cost
+"""
 
-print(get_vertices())
+def find_edges():
+    edges = []
+    for vertices in graph:
+        for connected_nodes in graph[vertices]:
+            edges.append((vertices, connected_nodes[0], connected_nodes[1]))
+
+    return edges
+
