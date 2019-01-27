@@ -37,6 +37,7 @@ class Vertex:
 
 """
 Usage:
+
 v = Vertex("a")
 v.add_neighbor("b",8)
 print "Neighbor added"
@@ -44,8 +45,8 @@ v.add_neighbor("f",9)
 print "Neighbor added"
 print(v.get_connections())
 print(v.get_weight("b"))
-
 """
+
 
 """
 Below class defines a graph.
@@ -82,12 +83,44 @@ class graph:
         vertices = self.vertices.keys()
         vertices.sort()
         return vertices
+    """
+    The below function returns the keys used to identify a graph
+    """
+    def get_key(self):
+        return self.key
+    """
+    The below function gets all the edges of a graph.
+    """
+
+
+    def get_edge(self):
+        edges=[]
+        for vertex in self.vertices:
+            neighbors = (self.vertices[vertex]).get_connections()
+
+            for neighbor in neighbors:
+                edges.append((vertex, neighbor[0].key,neighbor[1]))
+        return edges
+
 
 """
 Below example shows the usage of the function.
 g =graph()
-g.add_vertex("b")
+g.add_vertex("a")
 g.add_edge("a", "b", 7)
-print (g.get_vertices())
+g.add_edge("b", "c", 10)
+g.add_edge("b", "d", 15)
+g.add_edge("c", "d", 11)
+g.add_edge("e", "d", 6)
+g.add_edge("e", "f", 9)
+g.add_edge("a", "f", 14)
+g.add_edge("c", "f", 2)
+print g.get_edge()
 
 """
+
+
+
+
+
+
